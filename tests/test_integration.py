@@ -1,5 +1,3 @@
-"""Exercise the full echo flow over real loopback HTTP, without Telegram."""
-
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from threading import Thread
@@ -32,7 +30,7 @@ def test_full_echo_flow_uses_configured_http_server(monkeypatch):
     ]
 
     class FakeTelegram(BaseHTTPRequestHandler):
-        def do_POST(self):  # noqa: N802
+        def do_POST(self):
             length = int(self.headers["Content-Length"])
             parameters = parse_qs(self.rfile.read(length).decode("utf-8"))
             requests.append((self.path, parameters))

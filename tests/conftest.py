@@ -1,5 +1,3 @@
-"""In-memory transport; tests never call the real Telegram API."""
-
 from collections import deque
 
 import pytest

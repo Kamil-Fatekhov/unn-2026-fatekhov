@@ -67,13 +67,13 @@ make run
 ## Проверки
 
 ```sh
-make check         # форматирование, линтер, типы и тесты
-make test          # тесты pytest
-make format-check  # проверка форматирования Ruff
-make format        # автоформатирование Ruff
-make lint          # проверка линтера Ruff
-make lint-fix      # исправления линтера Ruff
-make typecheck     # строгая проверка типов mypy
+make check
+make test
+make format-check
+make format
+make lint
+make lint-fix
+make typecheck
 ```
 
 В PowerShell Python виртуального окружения можно указать явно:

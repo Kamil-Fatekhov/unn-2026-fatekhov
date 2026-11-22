@@ -1,5 +1,3 @@
-"""Transport-independent messages and updates."""
-
 from dataclasses import dataclass
 
 

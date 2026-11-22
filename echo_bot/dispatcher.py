@@ -1,5 +1,3 @@
-"""Route incoming messages; ignore other update types."""
-
 from typing import Protocol
 
 from echo_bot.models import Message, Update

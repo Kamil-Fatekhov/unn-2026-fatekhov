@@ -1,5 +1,3 @@
-"""Composition root: assemble the transport and application components."""
-
 import logging
 
 from echo_bot.config import Config

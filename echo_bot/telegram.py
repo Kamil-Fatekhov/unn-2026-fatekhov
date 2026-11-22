@@ -1,5 +1,3 @@
-"""Telegram Bot API adapter implemented with the standard library."""
-
 import json
 import urllib.error
 import urllib.parse

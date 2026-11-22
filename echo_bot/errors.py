@@ -1,6 +1,3 @@
-"""Transport errors contain no request URL or secret token."""
-
-
 class TelegramApiError(RuntimeError):
     def __init__(
         self, message: str, *, retryable: bool = False, retry_after: float = 3.0

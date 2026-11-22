@@ -1,5 +1,3 @@
-"""Application interface for receiving and sending messages."""
-
 from typing import Protocol
 
 from echo_bot.models import Update

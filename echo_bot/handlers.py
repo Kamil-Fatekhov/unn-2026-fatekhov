@@ -1,5 +1,3 @@
-"""Echo text verbatim through the abstract Messenger interface."""
-
 from echo_bot.messenger import Messenger
 from echo_bot.models import Message
 

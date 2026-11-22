@@ -1,5 +1,3 @@
-"""Load environment configuration at startup, never at import time."""
-
 import os
 from dataclasses import dataclass
 from urllib.parse import urlsplit
