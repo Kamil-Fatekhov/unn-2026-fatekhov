@@ -38,8 +38,28 @@ def test_get_updates_uses_configured_endpoint_and_long_poll_timeout(monkeypatch)
     parameters = parse_qs(request.data.decode())
     assert parameters["offset"] == ["7"]
     assert parameters["timeout"] == ["30"]
+    assert parameters["limit"] == ["100"]
     assert json.loads(parameters["allowed_updates"][0]) == ["message"]
     assert opener.call_args.kwargs["timeout"] > 30
+
+
+def test_empty_polls_always_include_limit(monkeypatch):
+    opener = Mock(
+        side_effect=lambda *_args, **_kwargs: io.BytesIO(
+            json.dumps({"ok": True, "result": []}).encode()
+        )
+    )
+    monkeypatch.setattr("urllib.request.urlopen", opener)
+    messenger = TelegramMessenger("fake-token", "http://test.invalid")
+
+    assert messenger.get_updates(0, 30) == []
+    assert messenger.get_updates(0, 30) == []
+
+    assert opener.call_count == 2
+    for call in opener.call_args_list:
+        parameters = parse_qs(call.args[0].data.decode())
+        assert parameters["limit"] == ["100"]
+        assert parameters["offset"] == ["0"]
 
 
 def test_send_message_preserves_unicode_and_omits_parse_mode(monkeypatch):

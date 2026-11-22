@@ -71,7 +71,12 @@ def test_full_echo_flow_uses_configured_http_server(monkeypatch):
         assert requests == [
             (
                 "/custom/api/botfake-token/getUpdates",
-                {"offset": ["0"], "timeout": ["1"], "allowed_updates": ['["message"]']},
+                {
+                    "offset": ["0"],
+                    "timeout": ["1"],
+                    "limit": ["100"],
+                    "allowed_updates": ['["message"]'],
+                },
             ),
             (
                 "/custom/api/botfake-token/sendMessage",
@@ -82,6 +87,7 @@ def test_full_echo_flow_uses_configured_http_server(monkeypatch):
                 {
                     "offset": ["43"],
                     "timeout": ["1"],
+                    "limit": ["100"],
                     "allowed_updates": ['["message"]'],
                 },
             ),

@@ -59,6 +59,7 @@ class TelegramMessenger:
             {
                 "offset": offset,
                 "timeout": timeout,
+                "limit": 100,
                 "allowed_updates": json.dumps(["message"]),
             },
             timeout=timeout + 10,
