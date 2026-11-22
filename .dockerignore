@@ -1,0 +1,5 @@
+**
+!echo_bot/
+!echo_bot/*.py
+!pyproject.toml
+!Dockerfile
